@@ -100,8 +100,9 @@ return [
     */
 
     'custom' => [
-        'photo' => [
-            'dimensions' => 'A foto precisa ter 60px de largura e 60px de altura',
+        'data_nascimento' => [
+            'before' => 'A idade mínima é 18 anos!',
+            'date_format' => 'Esse campo deve estar no formato dd/mm/aaaa!'
         ],
         'name' => [
             'unique' => 'O nome ":input" já está cadastrado e não pode ser repetido!',
@@ -120,31 +121,11 @@ return [
     */
 
     'attributes' => [
-        'name' => 'Nome',
-        'class' => 'Classe',
-        'image' => 'Foto',
-        'description' => 'Descrição',
-        'address' => 'Endereço',
-        'title' => 'Título',
-        'number' => 'Número',
-        'zip_code' => 'Código postal',
-        'email' => 'Email',
-        'password' => 'Senha',
-        'password_confirm' => 'Confirmar Senha',
-        'is_admin' => 'É admin ?',
-        'status' => 'Status',
-        'bcc' => 'Com cópia',
-        'subject' => 'Assunto',
-        'port' => 'Porta',
-        'host' => 'Host',
-        'phone' => 'Telefone',
-        'phone2' => 'Telefone 2',
-        'phone3' => 'Telefone 3',
-        'business_hours' => 'Horário de funcionamento',
-        'seo_description' => 'Descrição breve (SEO - Opcional)',
-        'seo_keys' => 'Palavras-chave (SEO - Opcional)',
-        'logotipo' => 'Logotipo',
-        'brand_id' => 'Marca'
+        'nome' => 'Nome',
+        'identidade' => 'Identidade',
+        'data_nascimento' => 'Data de nascimento',
+        'servico_militar_obrigatorio' => 'Serviço militar obrigatório',
+        'patente' => 'Patente'
     ],
 
 ];
