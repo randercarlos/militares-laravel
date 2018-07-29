@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\MilitarFormRequest;
 use App\Models\Militar;
 use Illuminate\Http\Request;
 
@@ -26,7 +27,7 @@ class MilitarController extends Controller
      */
     public function create()
     {
-        $patentes = Militar::patentes;
+        $patentes = array_combine(Militar::patentes, Militar::patentes);
         
         return view('militar.form', compact('patentes'));
     }
@@ -37,9 +38,15 @@ class MilitarController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(MilitarFormRequest $request, Militar $militar)
     {
-        //
+        
+        if ($militar->create($request->all())) {
+            return redirect()->route('militares.index')->with('success', 'O ' . $request->input('patente') . 
+                ' <b>' . $request->input('nome') . '</b> foi cadastrado com sucesso!');
+        }
+        
+        return redirect()->back()->with('error', 'Falha ao cadastrar militar!')->withInput();
     }
 
     /**
@@ -59,9 +66,12 @@ class MilitarController extends Controller
      * @param  \App\Models\Militar  $militar
      * @return \Illuminate\Http\Response
      */
-    public function edit(Militar $militar)
+    public function edit($id)
     {
-        //
+        $militar = Militar::find($id);
+        $patentes = array_combine(Militar::patentes, Militar::patentes);
+
+        return view('militar.form', compact('militar', 'patentes'));
     }
 
     /**
@@ -71,9 +81,17 @@ class MilitarController extends Controller
      * @param  \App\Models\Militar  $militar
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Militar $militar)
+    public function update(MilitarFormRequest $request, $id)
     {
-        //
+        // recupera as patentes e as transforma em string através da string ',' para ser usada na validação do "in"
+        $militar = Militar::find($id);
+        
+        if ($militar->update($request->all())) {
+            return redirect()->route('militares.index')->with('success', 'O ' . $militar->patente . 
+                ' <b>' . $militar->nome . '</b> foi salvo com sucesso!');
+        }
+        
+        return redirect()->back()->with('error', 'Falha ao salvar militar!')->withInput();
     }
 
     /**
@@ -82,8 +100,17 @@ class MilitarController extends Controller
      * @param  \App\Models\Militar  $militar
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Militar $militar)
+    public function destroy($id)
     {
-        //
+        $militar = Militar::find($id);
+        $nome = $militar->nome;
+        $patente = $militar->patente;
+        
+        if ($militar->delete()) {
+            return redirect()->route('militares.index')->with('success', "O $patente <b>$nome</b> foi 
+                excluído com sucesso!");
+        }
+        
+        return redirect()->back()->with('error', 'Falha ao excluir militar!');
     }
 }

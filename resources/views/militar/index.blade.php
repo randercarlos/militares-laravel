@@ -35,7 +35,7 @@
                         {{ $militar->nome }} 
                     </a>
                 </td>
-                <td class="text-center"> {{ $militar->data_nascimento->format('d/m/Y') }}</td>
+                <td class="text-center"> {{ $militar->data_nascimento }}</td>
                 <td class="text-center"> {{ $militar->servico_militar_obrigatorio }}</td>
                 <td class="text-center"> <span class="label label-success">{{ $militar->patente }}</span> </td>
                 <td class="text-center"> {{ $militar->identidade }}</td>
