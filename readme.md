@@ -1,51 +1,73 @@
-<p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
+# Sistema de Cadastro de Militares
+> Simples CRUD de militares. Desafio para a vaga de Desenvolvedor PHP na CTIS.
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
 
-## About Laravel
+Sistema para gerenciamento de militares. Permite visualizar, cadastrar, alterar e excluir militares.
+Trabalha com os seguintes dados: nome, identidade(RG), data de nascimento, serviço militar obrigatório, patente
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as:
+![](screenshot.png)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+O sistema está acessível no endereço: [https://desafio-ctis-militares.herokuapp.com/](https://desafio-ctis-militares.herokuapp.com/)
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb combination of simplicity, elegance, and innovation give you tools you need to build any application with which you are tasked.
 
-## Learning Laravel
+## Pré-requisitos
 
-Laravel has the most extensive and thorough documentation and video tutorial library of any modern web application framework. The [Laravel documentation](https://laravel.com/docs) is thorough, complete, and makes it a breeze to get started learning the framework.
 
-If you're not in the mood to read, [Laracasts](https://laracasts.com) contains over 900 video tutorials on a range of topics including Laravel, modern PHP, unit testing, JavaScript, and more. Boost the skill level of yourself and your entire team by digging into our comprehensive video library.
+- PHP 7.1
+- Servidor Apache ou Nginx(ambos são opcionais para ambiente de desenvolvimento)
+- Laravel 5.4 
+- MySQL v5.*
+- Browser atual
 
-## Laravel Sponsors
 
-We would like to extend our thanks to the following sponsors for helping fund on-going Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](http://patreon.com/taylorotwell):
+## Instalação e execução
 
-- **[Vehikl](http://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- **[Styde](https://styde.net)**
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
 
-## Contributing
+**Windows, OS X & Linux:**
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
+Baixe o arquivo zip e o descompacte ou baixe o projeto para sua máquina através do git clone [https://github.com/randercarlos/militares-laravel.git](https://github.com/randercarlos/militares-laravel.git)
 
-## Security Vulnerabilities
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+- Crie o banco de dados do projeto no MySQL
 
-## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+- Entre no prompt de comando e vá até a pasta do projeto: 
+
+
+```sh
+cd ir-ate-a-pasta-do-projeto
+```
+
+
+- Crie o arquivo .env através do arquivo .env.example:
+
+
+```sh
+cp .env.example .env
+```
+
+
+- Configure as variáves setadas dentro do arquivo .env:
+
+
+> **OBS:** A variável **APP_URL** deve receber a URL do projeto.
+
+> **OBS2:** As variáveis **DB_CONNECTION**, **DB_HOST**, **DB_PORT**, **DB_DATABASE**, **DB_USERNAME**,
+**DB_USERNAME**, **DB_PASSWORD** devem ser setadas com as configurações do banco.
+
+
+- Com as variáveis de ambiente configuradas, vá ao terminal e dentro da pasta raiz do projeto, execute o comando:
+
+```sh
+php artisan serve
+```
+
+- Se tudo der certo, o artisan exibirá uma mensagem que o projeto estará rodando no [http://localhost:8000](http://localhost:8000).
+
+
+- Abra um navegador atual qualquer e execute o http://localhost:8000 para ver o projeto funcionando...
+
+
+## Autor
+
+Rander Carlos – randerccf@gmail.com
