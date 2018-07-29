@@ -56,6 +56,12 @@ cp .env.example .env
 **DB_USERNAME**, **DB_PASSWORD** devem ser setadas com as configurações do banco.
 
 
+- Rode as migrações do projeto para a criação das tabelas no banco de dados:
+
+```sh
+php artisan migrate
+```
+
 - Com as variáveis de ambiente configuradas, vá ao terminal e dentro da pasta raiz do projeto, execute o comando:
 
 ```sh
