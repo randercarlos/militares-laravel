@@ -11,15 +11,6 @@
         <title>{{ $title or 'Área Administrativa' }}</title>
         
         
-        
-        <!--  <Style type='text/css' >body
-            {background-color:rgb(0,0,0);
-            background-image:url(http://www.zingerbugimages.com/backgrounds/woodland_camouflage.jpg);
-            background-position:top left;background-repeat:repeat;background-attachment:fixed;}</Style>
-        -->
-        
-        
-        
         <link href="//maxcdn.bootstrapcdn.com/bootswatch/3.3.5/cosmo/bootstrap.min.css" rel="stylesheet">
         
         <link href="{{ asset('assets/css/font-awesome.css') }}" rel="stylesheet" /> 
@@ -34,26 +25,16 @@
     </head>
     <body>
         
-        {{--
-        <div style="background-color: #8a1818; height: 150px">
-            <div class="container text-center logo">
-                <img alt="Logo" src="{{ asset('uploads/agencia/logotipo.png') }}" />
-            </div>
-        </div>
-        --}}
-        
-        
         {{-- Inclui o menu  --}}
         @include('template.menu')
         
-        
         <div class="container-fluid back">
             <div class="container text-center">
-                <h4 class="page-head-line titulo"> @yield('main_title') </h4>
+                <h4 class="page-head-line titulo" > @yield('main_title') </h4>
             </div>
         </div>
         
-        <div class="content-wrapper">
+        <div class="content-wrapper" style="min-height: 550px !important;">
             <div class="container">
                 
                 @yield('content')

@@ -74,3 +74,12 @@ footer a, footer a:hover {
     display: block;
 }
 //FIM Botão Bootstrap
+
+
+
+.bg_camuflagem {
+    background-image:url('http://www.zingerbugimages.com/backgrounds/woodland_camouflage.jpg');
+    background-position:top left;
+    background-repeat:repeat;
+    background-attachment:fixed;
+}
